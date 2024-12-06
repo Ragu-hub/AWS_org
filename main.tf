@@ -19,7 +19,7 @@ resource "aws_organizations_account" "qa_account" {
 }
 
 resource "aws_organizations_account" "admin_account" {
-  name      = "shared-security-account"
+  name      = "admin-account"
   email     = var.admin_email
   role_name = "OrganizationAccountAccessRole"
   tags = {
