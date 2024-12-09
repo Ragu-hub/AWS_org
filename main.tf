@@ -1,23 +1,18 @@
-resource "aws_organizations_organization" "org" {
-  # This will refer to the root of the existing organization
-  # The root ID is automatically accessible through the `id` attribute
-}
-
-#Creating Organisational Unit
+data "aws_organizations_organization" "existing_org" {}
 
 resource "aws_organizations_organizational_unit" "prod_ou" {
   name      = "Production"
-  parent_id = aws_organizations_organization.org.id
+  parent_id = data.aws_organizations_organization.existing_org.roots[0].id
 }
 
 resource "aws_organizations_organizational_unit" "qa_ou" {
   name      = "QA"
-  parent_id = aws_organizations_organization.org.id
+  parent_id = data.aws_organizations_organization.existing_org.roots[0].id
 }
 
 resource "aws_organizations_organizational_unit" "admin_ou" {
   name      = "admin"
-  parent_id = aws_organizations_organization.org.id
+  parent_id = data.aws_organizations_organization.existing_org.roots[0].id
 }
 
 resource "aws_organizations_account" "prod_account" {
@@ -52,4 +47,3 @@ resource "aws_organizations_account" "admin_account" {
   }
   parent_id = aws_organizations_organizational_unit.admin_ou.id
 }
-
