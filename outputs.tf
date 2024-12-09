@@ -1,3 +1,18 @@
+output "prod_ou_id" {
+  description = "The ID of the Production Organizational Unit"
+  value       = aws_organizations_organizational_unit.prod_ou.id
+}
+
+output "admin_ou_id" {
+  description = "The ID of the Production Organizational Unit"
+  value       = aws_organizations_organizational_unit.admin_ou.id
+}
+
+output "qa_ou_id" {
+  description = "The ID of the Production Organizational Unit"
+  value       = aws_organizations_organizational_unit.qa_ou.id
+}
+
 output "prod_account_id" {
   description = "The ID of the production account"
   value       = aws_organizations_account.prod_account.id
