@@ -27,3 +27,7 @@ output "admin_account_id" {
   description = "The ID of the admin account"
   value       = aws_organizations_account.admin_account.id
 }
+
+output "admin_vpc_id" {
+  value = aws_vpc.admin_vpc.id
+}
