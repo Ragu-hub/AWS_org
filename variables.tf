@@ -15,3 +15,13 @@ variable "admin_email" {
     type = string
     default = "raguilamathi1403+admin@gmail.com"
 }
+
+variable "admin_account_id" {
+  description = "Admin Account id"
+  default = "761018845903"
+}
+
+variable "qa_account_id" {
+  description = "QA Account id"
+  default = "605134459342"
+}
